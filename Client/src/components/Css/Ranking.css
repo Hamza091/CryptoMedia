@@ -1,0 +1,63 @@
+.ranks-container{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 4rem auto;
+    width: 60%;
+}
+
+.rank{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: 1px solid turquoise; */
+    justify-content: space-between;
+    /* width: 65rem; */
+    width: 100%;
+    padding: 4.4rem;
+    margin: 2rem;
+    margin-bottom: 2.2rem;
+    letter-spacing: 0.1rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: rgb(240, 239, 239);
+    background: transparent;
+    background-color: rgba(77, 75, 75, 0.562);
+    z-index: 3;
+    border: 2px solid rgb(105, 104, 104);
+    border-radius: 2rem;
+    box-shadow: 3px 3px 3px 1.5px #585757be;
+    cursor: pointer;
+}
+
+.rank:hover{
+    padding: 4.5rem;
+    position: relative;
+    top: -1.4rem;
+    box-shadow: 5px 5px 5px 3px #6b6a6abe;
+ 
+}
+
+.rank-para{
+    background: transparent;
+}
+
+.amount{
+    color: rgb(211, 205, 205);
+}
+
+.rank-number{
+    background-color: rgb(114, 112, 112);
+    position: relative;
+    border-radius: 10rem;
+    /* padding: 1rem; */
+    padding: 0.3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: rgb(240, 239, 239);
+    top: -4.5rem;
+    left: -3.4rem;
+}

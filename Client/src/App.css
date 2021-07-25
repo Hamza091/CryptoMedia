@@ -1,0 +1,9 @@
+.App
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+*:not(.nav-container ,.nav-container-logo ,.nav-container-links, .nav-container-lists)
+{
+  background-color: #332d2d;
+}

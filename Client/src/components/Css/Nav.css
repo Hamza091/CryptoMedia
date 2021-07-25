@@ -1,0 +1,85 @@
+.nav-container
+{
+    background-color: #464141;
+    width: 100%;
+    height: 12rem;
+    font-family: 'Roboto Slab', serif;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.nav-container-logo
+{
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto 0px;
+    font-size: 5rem;
+    color: rgb(255, 255, 255);
+    letter-spacing: 3px;
+    font-weight: bolder;
+    padding-left: 2rem;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 3px 2.5px #887c7c;
+
+    
+}
+
+.nav-container-links
+{
+    /* border: 5px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto 0px;
+    margin-right: 1rem;
+    
+}
+.new{
+    color: white;
+}
+.new:hover{
+    color: rgb(151, 148, 148);
+}
+.nav-container-lists
+{
+    color: rgb(255, 255, 255);
+    margin-right: 5rem;
+    letter-spacing: 0.1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    
+}
+.nav-container a.icon {
+    display: none;
+}
+@media only screen and (max-width: 700px)
+{
+     .nav-container-logo{
+        letter-spacing: 0.1rem;
+        font-size: 3.5rem;
+        font-weight: bold;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .nav-container-links
+    {
+        margin-right: 0rem;
+        display: block;
+    }
+    .nav-container-lists
+    {
+        display: none;
+    }
+    .nav-container a.icon {
+
+        color: white;
+        margin: auto 0px;
+        display: block;
+        background-color: #464141;
+        font-size: 3.5rem;
+        position: relative;
+        right: 5rem;
+        flex-wrap: nowrap;
+      }
+      
+}
