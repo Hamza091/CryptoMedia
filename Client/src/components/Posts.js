@@ -1,36 +1,28 @@
 import {React,useEffect,useState} from 'react'
 import axios from 'axios'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import './Css/Posts.css'
-
-// 1st
-// io.on('connection',{
-//     socket.join(myid)
-// })
-
-// io.to(followersidiftheyareconnected).emit('post',newpost)
-
-// 2nd
-// socket.emit(followerId,posts)
-// socket.on(myid , post)
-
-
+import {SetPosts} from '../redux/actions/SetPosts'
 
 function Posts() {
 
-    const [posts,setPosts] = useState([])
+    // const [posts,setPosts] = useState([])
+    const dispatch = useDispatch()
 
     var loginCredentials = useSelector(state => state.LoginReducer)
+    var posts = useSelector(state => state.PostsReducer)
 
    useEffect(() => {
         GetPosts()
+
    }, [])
 
    async function GetPosts(){
 
         loginCredentials = JSON.stringify(loginCredentials)
         const response = await axios.get('./api/posts',{params:{loginCredentials}})
-        setPosts(response.data.filterPosts)
+        // setPosts(response.data.filterPosts)
+        dispatch(SetPosts(response.data.filterPosts))
 
    }
 

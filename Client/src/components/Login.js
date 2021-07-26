@@ -2,8 +2,10 @@ import {React,useState} from 'react'
 import './Css/Register.css'
 import {Link,useHistory} from 'react-router-dom'
 import axios from 'axios'
-import {useDispatch} from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux'
 import {LoginAction} from '../redux/actions/LoginAction'
+import {UpdatePosts} from '../redux/actions/UpdatePosts'
+import socket from '../SocketConfig'
 
 function Login() {
 
@@ -12,7 +14,7 @@ function Login() {
   
   const history = useHistory()
   const dispatch = useDispatch()
-
+  const loginCredentials = useSelector(state => state.LoginReducer)
   async function handleLogin()
    {
      const json = JSON.stringify({email,password})
@@ -26,11 +28,16 @@ function Login() {
             console.log(res)
             if(res.data.success)
             {
+              // console.log(loginCredentials)
+              socket.on(res.data.data[0]._id,data=>dispatch(UpdatePosts(data)))
                 console.log(res.data)
                 const obj = {success:res.data.success,data:res.data.data[0]}
                 console.log(obj)
                 dispatch(LoginAction(obj))
                 history.push("/home")
+               
+
+                
             }
 
           }

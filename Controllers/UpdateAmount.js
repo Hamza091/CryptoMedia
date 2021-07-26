@@ -39,6 +39,17 @@ async function UpdateAmount(req,res){
             Ranking()
             if(data.followers!==0){
                 UpdatePosts(data,"buy")
+                for(var i=0; i<data.FollowersId.length; i++)
+                {
+                    global.io.emit(data.FollowersId[i].id,{
+                        'firstName':data.firstName,
+                        'lastName':data.lastName,
+                        'action':'buy',
+                        'quantity':data.quantity,
+                        'coin':data.coin,
+                        'time': new Date()
+                    })
+                }
             }
             res.send({success:true,amount:data.amount,newQuantity})
         }

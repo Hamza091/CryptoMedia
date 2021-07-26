@@ -9,10 +9,10 @@ import Profile from './components/Profile'
 import Posts from './components/Posts'
 import {useSelector,useDispatch} from 'react-redux'
 import {useEffect} from 'react'
-import socketIOClient from 'socket.io-client'
+// import socketIOClient from 'socket.io-client'
 import {UpdateRanking} from './redux/actions/UpdateRanking'
 
-
+import socket from './SocketConfig'
 
 function App() {
   const loginDetails =  useSelector(state=>state.LoginReducer)
@@ -20,16 +20,28 @@ function App() {
   console.log(loginDetails) 
   const dispatch = useDispatch()
   useEffect(() => {
-    const socket = socketIOClient("http://localhost:8000",{
-        withCredentials: true,
-        extraHeaders: {
-          "my-custom-header": "abcd"
-        }})
-        socket.on("ranking",rankings=>{
-          // console.log(rankings)
-            dispatch(UpdateRanking(rankings))
+    socket.on("ranking",rankings=>{
+            console.log(rankings)
+              dispatch(UpdateRanking(rankings))
+  
+          })
+    // const socket = socketIOClient("http://localhost:8000",{
+    //     withCredentials: true,
+    //     extraHeaders: {
+    //       "my-custom-header": "abcd"
+    //     }})
+    //     socket.on("ranking",rankings=>{
+    //       // console.log(rankings)
+    //         dispatch(UpdateRanking(rankings))
             
-        })
+    //     })
+    //     if(loginDetails.length>0)
+    //     {
+    //     socket.on(loginDetails.data._id,data=>{
+    //       console.log(data)
+    //       dispatch(UpdatePosts(data))
+    //     })
+    //     }
 }, [])
   return (
     
