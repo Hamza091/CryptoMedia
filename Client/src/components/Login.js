@@ -16,10 +16,11 @@ function Login() {
   async function handleLogin()
    {
      const json = JSON.stringify({email,password})
-    
+      // const json = {email,password}
           try{
             const res = await axios.get('./api/login',{
              params:{ json }
+            
             }
             )
             console.log(res)

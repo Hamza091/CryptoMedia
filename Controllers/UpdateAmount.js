@@ -36,14 +36,15 @@ async function UpdateAmount(req,res){
         {
             console.log("response from last update")
             console.log(response)
+            Ranking()
+            if(data.followers!==0){
+                UpdatePosts(data,"buy")
+            }
             res.send({success:true,amount:data.amount,newQuantity})
         }
     })
 
-    Ranking()
-    if(data.followers!==0){
-        UpdatePosts(data,"buy")
-    }
+   
 }
 
 module.exports=UpdateAmount

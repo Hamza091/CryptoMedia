@@ -1,12 +1,15 @@
-const registerSchema = require('../Models/Register')
+const userSchema = require('../Models/Register')
 
-async function login(req,res){
+async function Login(req,res){
 
     console.log("Login request received...")
-    console.log(req.query)
-    const data = JSON.parse(req.query.json) 
+    // console.log(req.query.json.email)
+    const data = JSON.parse(req.query.json)
+    // const data = req.query.json 
     console.log(data)
-    const user = await registerSchema.find({email:data.email,password:data.password})
+    try{
+    const user = await userSchema.find({email:data.email,password:data.password})
+    // console.log(user)
     if(user.length>0)
     {
         console.log("found "+ user)
@@ -19,7 +22,12 @@ async function login(req,res){
         console.log("user not found")
         res.send({success:false})
     }
+    }
+    catch(err)
+    {
+        console.log(err)
+    }
 
 }
 
-module.exports=login 
+module.exports=Login 

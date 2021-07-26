@@ -1,0 +1,80 @@
+.posts-container{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: center;
+    /* height: 83.5vh; */
+    justify-content: center;
+    
+}
+.post{
+    border: 2px solid rgb(83, 83, 83);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 2rem;
+    padding: 3rem;
+    width: 50%;
+    background-color: rgba(59, 58, 58, 0.671);
+    box-shadow: 2px 2px 2px 1.5px #585757be;
+    z-index: 5;
+}
+.post-head{
+    /* border: 1px solid yellow; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background-color: transparent;
+}
+.postcontainerpic{
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    left: 10rem;
+    background: transparent;
+}
+.postpic{
+    /* border: 1px solid orange; */
+    height: 10rem;
+    border-radius: 1rem;
+    background:transparent
+}
+.p-posts{
+    background-color: transparent;
+}
+.name-container{
+    margin: 0.5rem;
+    margin-left: 15rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    color: rgb(207, 205, 205);
+    letter-spacing: 0.01rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    justify-content: center;
+    line-height: 4rem;
+    margin-bottom: -0.1rem;
+    background: transparent;
+    /* border: 1px solid red; */
+    /* position: relative; */
+    /* left: 11rem; */
+    
+}
+.post-body{
+    margin-top: 0.1rem;
+    padding: 1rem;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    font-size: 2.3rem;
+    color: rgb(207, 203, 203);
+    font-weight: bold;
+    font-family: 'Handlee', cursive;
+    padding-left: 7rem;
+    background: transparent;
+}

@@ -38,15 +38,16 @@ async function SellCoin(req,res){
         {
             console.log("response from last update")
             console.log(response)
+            Ranking()
+            // console.log("data"+data)
+            if(data.followers!==0){
+                UpdatePosts(data,"sell")
+            }
             res.send({success:true,amount:data.amount,newQuantity})
         }
     })
 
-    Ranking()
-    // console.log("data"+data)
-    if(data.followers!==0){
-        UpdatePosts(data,"sell")
-    }
+   
 }
 
 module.exports=SellCoin

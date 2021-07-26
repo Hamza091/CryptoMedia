@@ -1,10 +1,12 @@
 // const userSchema = require('../Models/Register')
 const postSchema = require('../Models/Posts')
 
-async function UpdatePosts({id,coin,quantity,FollowersId},action)
+async function UpdatePosts({firstName,lastName,id,coin,quantity,FollowersId},action)
 {
   const newPost = new postSchema({
       userId:id,
+      firstName,
+      lastName,
       action,
       coin,
       FollowersId,

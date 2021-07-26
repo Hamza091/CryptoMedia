@@ -1,14 +1,16 @@
 import {React} from 'react'
 import './Css/Profile.css'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import {useLocation} from 'react-router-dom'
 import axios from 'axios'
+import { LoginAction } from '../redux/actions/LoginAction'
 
 function Profile() {
     var loginDetails = useSelector(state => state.LoginReducer)
     const id = loginDetails.data._id
     var show = false
     const location = useLocation()
+    const dispatch = useDispatch()
     if(location.details)
     {
         if(id!==location.details.data._id)
@@ -36,7 +38,8 @@ function Profile() {
                 console.log(response)
                 if(response.data.success)
                 { 
-                    document.querySelector('.profile-head-buttonContainer').remove()
+                    // document.querySelector('.profile-head-buttonContainer').remove()
+                    dispatch(LoginAction(response.data))
                 }
             }
             catch(err){
@@ -70,7 +73,7 @@ function Profile() {
                 <div className="profile-details-info">
                     <h6 className="profile-h6">Followers</h6>
                     <p className="profile-p">
-                        5
+                        {loginDetails.data.followers}
                     </p>
                 </div>
                 <div className="profile-details-info">

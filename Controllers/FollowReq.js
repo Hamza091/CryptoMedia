@@ -10,7 +10,7 @@ async function FollowReq(req,res){
         user.followersId.push({'id':data.followerId})
         const response = await user.save()
         console.log(response)
-        res.send({success:true}) 
+        res.send({'success':true,data:response})
     }
     catch(err)
     {

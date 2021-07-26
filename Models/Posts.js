@@ -1,9 +1,15 @@
 const mongoose = require('mongoose')
 
-
-
 const postschema = new mongoose.Schema({
     userId:{
+        type:'string',
+        required:true
+    },
+    firstName:{
+        type:'string',
+        required:true
+    },
+    lastName:{
         type:'string',
         required:true
     },
