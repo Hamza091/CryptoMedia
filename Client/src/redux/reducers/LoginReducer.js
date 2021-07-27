@@ -2,6 +2,7 @@
 import { Update_LoginData } from "../constants/Constants";
 import { Update_Quantity } from "../constants/Constants";
 import { Update_Amount } from "../constants/Constants";
+import { Clean_LoginDetails } from "../constants/Constants";
 
 const initialState = []
 
@@ -15,6 +16,8 @@ export const LoginReducer = (state = initialState , action) =>
             return update(state,action.payload)
         case Update_Amount:
             return updateamount(state,action.payload)
+        case Clean_LoginDetails:
+            return state = []
         default:
             return state
     }

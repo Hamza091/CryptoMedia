@@ -11,7 +11,7 @@ export const PostsReducer = (state = initialState , action) =>
         case Set_Posts:
             return state=action.payload
         case Update_Posts:
-            return [...state,action.payload]
+            return [action.payload,...state]
         default:
             return state
     }

@@ -25,41 +25,34 @@ function App() {
               dispatch(UpdateRanking(rankings))
   
           })
-    // const socket = socketIOClient("http://localhost:8000",{
-    //     withCredentials: true,
-    //     extraHeaders: {
-    //       "my-custom-header": "abcd"
-    //     }})
-    //     socket.on("ranking",rankings=>{
-    //       // console.log(rankings)
-    //         dispatch(UpdateRanking(rankings))
-            
-    //     })
-    //     if(loginDetails.length>0)
-    //     {
-    //     socket.on(loginDetails.data._id,data=>{
-    //       console.log(data)
-    //       dispatch(UpdatePosts(data))
-    //     })
-    //     }
+
 }, [])
   return (
     
     <Router>
+    
+    {!loginDetails.success?
+
     <div className="App">
-    {loginDetails.success?
-       <Nav />:null 
-    }
-     <Switch>
+      <Switch>
         <Route exact path="/">
           <Register />
         </Route>
         <Route path="/login">
           <Login />
         </Route>
-        
-        
-        <Route path="/home">
+      </Switch>
+    </div>
+      
+      :
+     
+     <div className="App">
+       
+       <Nav/>
+    
+     <Switch>
+   
+       <Route path="/home">
           <Posts />
         </Route>
 
@@ -75,8 +68,8 @@ function App() {
           <Profile/>
         </Route>
 
-      </Switch>
-    </div>
+      </Switch></div>}
+    
     </Router>
   );
 }

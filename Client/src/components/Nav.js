@@ -1,9 +1,12 @@
 import React from 'react'
 import './Css/Nav.css'
 import {Link} from 'react-router-dom'
-import { reset } from 'chalk'
+import {useDispatch} from 'react-redux'
+import {CleanLoginDetails} from '../redux/actions/CleanLoginDetails'
 
 export default function Nav() {
+    const dispatch = useDispatch()
+
     const hamburgerClicked = () =>{
         let elem=document.querySelectorAll('.nav-container-lists')
         let links = document.querySelector('.nav-container-links')
@@ -26,6 +29,10 @@ export default function Nav() {
         //   icon.style.right="2rem"
         
     }
+    const handleLogout = () =>{
+        console.log("logout called...")
+        dispatch(CleanLoginDetails())
+    }
     return (
         <div className="nav-container">
                 <p className="nav-container-logo">CryptoMedia</p>
@@ -35,7 +42,7 @@ export default function Nav() {
                 <p className="nav-container-lists"><Link to="/invest" className="nav-container-links new">Invest</Link></p>
                 <p className="nav-container-lists"><Link to="/ranking" className="nav-container-links new">Ranking</Link></p>
                 <p className="nav-container-lists"><Link to="/profile" className="nav-container-links new">Profile</Link></p>
-                <p className="nav-container-lists">Logout</p>
+                <p className="nav-container-lists"><Link to="/" className="nav-container-links new" onClick={handleLogout}>Logout</Link></p>
               
                
             </div>
