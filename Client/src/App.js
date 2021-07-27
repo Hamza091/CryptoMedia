@@ -68,7 +68,9 @@ function App() {
           <Profile/>
         </Route>
 
-      </Switch></div>}
+      </Switch>
+      
+      </div>}
     
     </Router>
   );

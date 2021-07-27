@@ -78,3 +78,33 @@
     padding-left: 7rem;
     background: transparent;
 }
+@media only screen and (max-width: 1213px)
+{
+    .post-head{
+        width: 100%;
+        padding: 0.5rem;
+        flex-wrap: nowrap;
+    }
+    .postcontainerpic{
+        position: relative;
+        top: 0rem;
+        left: 0rem;
+    }
+ 
+    .name-container{
+        margin: 0rem;
+        margin-left: 2rem;
+    }
+ 
+}
+
+@media only screen and (max-width: 608px)
+{
+.post{
+    
+    margin: 1rem;
+    padding: 1rem;
+    width: 90%;
+    
+}
+}
