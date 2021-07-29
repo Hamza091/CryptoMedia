@@ -29,7 +29,10 @@ function Login() {
             if(res.data.success)
             {
               // console.log(loginCredentials)
-              socket.on(res.data.data[0]._id,data=>dispatch(UpdatePosts(data)))
+              socket.on(res.data.data[0]._id,data=>{
+                  console.log("check hereer . .. .")
+                  console.log(data)
+                dispatch(UpdatePosts(data))})
                 console.log(res.data)
                 const obj = {success:res.data.success,data:res.data.data[0]}
                 console.log(obj)

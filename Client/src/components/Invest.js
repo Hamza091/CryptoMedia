@@ -44,7 +44,7 @@ function Invest() {
                     const newAmount = loginCredentials.data.amount+totalInvestment
                     console.log(loginCredentials)
                     console.log(newAmount)
-                    const userData = JSON.stringify({'firstName':loginCredentials.data.firstName,'lastName':loginCredentials.data.lastName,'id':loginCredentials.data._id,'amount':newAmount,'coin':coin,'quantity':coinNumbers, 'FollowersId':loginCredentials.data.followersId})
+                    const userData = JSON.stringify({'firstName':loginCredentials.data.firstName,'lastName':loginCredentials.data.lastName,'id':loginCredentials.data._id,'amount':newAmount,'coin':coin,'quantity':coinNumbers, 'FollowersId':loginCredentials.data.followersId, 'followers':loginCredentials.data.followers})
                     console.log(userData)
                     const updateUserAmount = await axios.patch('/api/SellCoin',{
                         userData
@@ -92,7 +92,7 @@ function Invest() {
                     const newAmount = loginCredentials.data.amount-totalInvestment
                     console.log(loginCredentials)
                     console.log(newAmount)
-                    const userData = JSON.stringify({'firstName':loginCredentials.data.firstName,'lastName':loginCredentials.data.lastName,'id':loginCredentials.data._id,'amount':newAmount,'coin':coin,'quantity':coinNumbers, 'FollowersId':loginCredentials.data.followersId})
+                    const userData = JSON.stringify({'firstName':loginCredentials.data.firstName,'lastName':loginCredentials.data.lastName,'id':loginCredentials.data._id,'amount':newAmount,'coin':coin,'quantity':coinNumbers, 'FollowersId':loginCredentials.data.followersId, 'followers':loginCredentials.data.followers})
                     console.log(userData)
                     const updateUserAmount = await axios.patch('/api/updateAmount',{
                         userData

@@ -10,6 +10,10 @@ async function SellCoin(req,res){
     console.log("data ")
     console.log(data)
 
+    await userSchema.updateOne({'_id':data.id},{$set:{
+        'amount':data.amount
+    }})
+
     const doc = await userSchema.findOne({'_id':data.id})
     console.log(doc)
     
@@ -25,29 +29,20 @@ async function SellCoin(req,res){
             }
         }
   
-    const updated = await doc.save()
-
-    userSchema.updateOne({'_id':data.id},{$set:{
-        'amount':data.amount
-    }},(err,response)=>{
-        if(err)
-        {
-            console.log(err)
-            res.status(404).send({success:false})
-        }
-        else
-        {
-            console.log("response from last update")
-            console.log(response)
+    const UpdatedUser = await doc.save()
+    
+   
+    console.log("response from last update")
+            console.log(UpdatedUser)
             Ranking()
-            // console.log("data"+data)
-            if(data.followers!==0){
+            // console.lo("data"+data)
+            if(UpdatedUser.followers!==0){
                 UpdatePosts(data,"sell")
-                for(var i=0; i<data.FollowersId.length; i++)
+                for(var i=0; i<UpdatedUser.followersId.length; i++)
                 {
-                    global.io.emit(data.FollowersId[i].id,{
-                        'firstName':data.firstName,
-                        'lastName':data.lastName,
+                    global.io.emit(UpdatedUser.followersId[i].id,{
+                        'firstName':UpdatedUser.firstName,
+                        'lastName':UpdatedUser.lastName,
                         'action':'sell',
                         'quantity':data.quantity,
                         'coin':data.coin,
@@ -55,9 +50,9 @@ async function SellCoin(req,res){
                     })
                 }
             }
-            res.send({success:true,amount:data.amount,newQuantity})
-        }
-    })
+            res.send({success:true,amount:UpdatedUser.amount,newQuantity})
+
+    
 
    
 }

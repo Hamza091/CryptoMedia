@@ -1,4 +1,4 @@
-import {React} from 'react'
+import {React,useState} from 'react'
 import './Css/Profile.css'
 import {useSelector,useDispatch} from 'react-redux'
 import {useLocation} from 'react-router-dom'
@@ -11,10 +11,14 @@ function Profile() {
     var show = false
     const location = useLocation()
     const dispatch = useDispatch()
+    const [showBtn,setShowBtn] = useState(true)
     if(location.details)
     {
         if(id!==location.details.data._id)
+        {
                 show=true
+            // setShowBtn(true)
+        }
         loginDetails=location.details
         console.log(loginDetails)
         const followers = loginDetails.data.followersId
@@ -25,6 +29,8 @@ function Profile() {
             if(id===followers[i].id)
             {
                 show=false
+                // setShowBtn(false)
+                
             }
         }
     }
@@ -38,8 +44,10 @@ function Profile() {
                 console.log(response)
                 if(response.data.success)
                 { 
+                    setShowBtn(false)
+                    show=false
                     // document.querySelector('.profile-head-buttonContainer').remove()
-                    dispatch(LoginAction(response.data))
+                    // dispatch(LoginAction(response.data))
                 }
             }
             catch(err){
@@ -56,7 +64,7 @@ function Profile() {
                 <div className="profile-head-details">
                     <p className="profile-p v2">{`${loginDetails.data.firstName} ${loginDetails.data.lastName}`}</p>
                 </div>
-                {show?
+                {show&&showBtn?
                     <div className="profile-head-buttonContainer">
                         <button className="button-container-invest followbtn" onClick={handleClick}>Follow</button>
                     </div>:null

@@ -10,12 +10,14 @@ async function FollowReq(req,res){
         user.followersId.push({'id':data.followerId})
         const response = await user.save()
         console.log(response)
-        res.send({'success':true,data:response})
+        updatedRankData = await registerSchema.find()
+        global.io.emit('ranking',updatedRankData)
+        res.send({'success':true})
     }
     catch(err)
     {
         console.log(err)
-        res.send({success:false})
+        res.send({'success':false})
     }
 }
 
