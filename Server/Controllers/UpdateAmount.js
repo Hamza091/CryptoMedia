@@ -29,7 +29,7 @@ async function UpdateAmount(req,res){
     const UpdatedUser = await doc.save()
 
             console.log("response from last update")
-            console.log(response)
+            
             Ranking()
             if(UpdatedUser.followers!==0){
                 UpdatePosts(data ,"buy")
@@ -39,8 +39,8 @@ async function UpdateAmount(req,res){
                         'firstName':UpdatedUser.firstName,
                         'lastName':UpdatedUser.lastName,
                         'action':'buy',
-                        'quantity':UpdatedUser.quantity,
-                        'coin':UpdatedUser.coin,
+                        'quantity':data.quantity,
+                        'coin':data.coin,
                         'time': new Date()
                     })
                 }

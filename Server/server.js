@@ -7,6 +7,7 @@ const socketIo = require("socket.io")
 const cors = require("cors")
 const Ranking = require('./Controllers/Ranking')
 
+
 const app = express() 
 app.use(bodyParser.json())
 app.use(cors())
@@ -38,8 +39,9 @@ io.on("connection",(socket)=>{
 
 
 
-
-mongoose.connect('mongodb+srv://hamza:hk123@cluster0.ycueu.mongodb.net/cryptomedia?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
+// const connectionString = process.env.MONGO_URI
+// mongoose.connect('mongodb+srv://hamza:hk123@cluster0.ycueu.mongodb.net/cryptomedia?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb://mongo:27017/cryptomedia")
 .then(()=>{
     server.listen('8000',()=>{
         console.log("server is running...")

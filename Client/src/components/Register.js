@@ -22,7 +22,7 @@ function Register() {
      const json = JSON.stringify({firstName,lastName,email,password,amount})
     
           try{
-            const res = await axios.post('./api/register',
+            const res = await axios.post('http://localhost:8000/api/register',
              { json }
             )
             if(res.data.success)
@@ -30,6 +30,10 @@ function Register() {
               console.log(res.data)
                 dispatch(LoginAction(res.data))
                 history.push("/home")
+            }
+            else
+            {
+              alert("Invalid Email...")
             }
 
           }
@@ -76,14 +80,14 @@ function Register() {
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off" onChange={(e)=>{setEmail(e.target.value)}}/>
+            <input type="email" required autocomplete="off" onChange={(e)=>{setEmail(e.target.value)}}/>
           </div>
           
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" onChange={(e)=>{setPassword(e.target.value)}} />
+            <input type="password" required autocomplete="off" onChange={(e)=>{setPassword(e.target.value)}} />
           </div>
           
           <button  class="button button-block" onClick={handleSignup}>Get Started</button>

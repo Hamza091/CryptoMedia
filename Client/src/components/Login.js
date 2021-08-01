@@ -20,7 +20,7 @@ function Login() {
      const json = JSON.stringify({email,password})
       // const json = {email,password}
           try{
-            const res = await axios.get('./api/login',{
+            const res = await axios.get('http://localhost:8000/api/login',{
              params:{ json }
             
             }
@@ -38,9 +38,11 @@ function Login() {
                 console.log(obj)
                 dispatch(LoginAction(obj))
                 history.push("/home")
-               
-
-                
+          
+            }
+            else
+            {
+                alert("Invalid Credentials...")
             }
 
           }
@@ -65,14 +67,14 @@ function Login() {
           <label>
             Email Address<span class="req">*</span>
           </label>
-          <input type="email"required autocomplete="off" onChange={e=>{setEmail(e.target.value)}}/>
+          <input type="email" required autocomplete="off" onChange={e=>{setEmail(e.target.value)}}/>
         </div>
         
         <div class="field-wrap">
           <label>
             Password<span class="req">*</span>
           </label>
-          <input type="password"required autocomplete="off" onChange={e=>{setPassword(e.target.value)}}/>
+          <input type="password" required autocomplete="off" onChange={e=>{setPassword(e.target.value)}}/>
         </div>
         
         <p class="forgot"><a href="#">Forgot Password?</a></p>
