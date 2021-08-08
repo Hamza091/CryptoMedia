@@ -40,10 +40,11 @@ io.on("connection",(socket)=>{
 
 
 // const connectionString = process.env.MONGO_URI
-// mongoose.connect('mongodb+srv://hamza:hk123@cluster0.ycueu.mongodb.net/cryptomedia?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
-mongoose.connect("mongodb://mongo:27017/cryptomedia")
+const PORT = process.env.PORT || 8000
+// mongoose.connect("mongodb://mongo:27017/cryptomedia")
+mongoose.connect('mongodb+srv://hamza:hk123@cluster0.ycueu.mongodb.net/cryptomedia?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{
-    server.listen('8000',()=>{
+    server.listen(PORT,()=>{
         console.log("server is running...")
     })
     app.use('/api',handleRequest)
