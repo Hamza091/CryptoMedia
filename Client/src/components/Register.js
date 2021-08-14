@@ -15,14 +15,14 @@ function Register() {
    const history = useHistory()
 
    const dispatch = useDispatch()
-   
+   const PORT = process.env.PORT || 8000
    async function handleSignup()
    {
      const amount = 100000
      const json = JSON.stringify({firstName,lastName,email,password,amount})
     
           try{
-            const res = await axios.post('http://localhost:8000/api/register',
+            const res = await axios.post(`http://localhost:8000/api/register`,
              { json }
             )
             if(res.data.success)

@@ -1,3 +1,5 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode"
+    "makefile.extensionOutputFolder": "./.vscode",
+    "appService.defaultWebAppToDeploy": "/subscriptions/040b7d90-465c-4ba0-8241-d297ee40f480/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/cryptomedia",
+    "appService.deploySubpath": "."
 }
