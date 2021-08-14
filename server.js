@@ -20,7 +20,7 @@ const io = socketIo(server, {
     cors: {
     //   origin: "https://example.com",
       // origin: "http://localhost:3000",
-      origin: "http://localhost:3000",
+      origin: "http://localhost:8000",
       methods: ["GET", "POST"],
       allowedHeaders: ["my-custom-header"],
       credentials: true

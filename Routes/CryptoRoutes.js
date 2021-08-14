@@ -7,7 +7,7 @@ const FollowReq = require('../Controllers/FollowReq')
 const Posts = require('../Controllers/Posts')
 
 const router = express.Router()
-
+console.log("helllw")
 
 router.post('/register',Register)
 
