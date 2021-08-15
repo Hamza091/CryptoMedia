@@ -22,7 +22,7 @@ function Register() {
      const json = JSON.stringify({firstName,lastName,email,password,amount})
     
           try{
-            const res = await axios.post(`http://localhost:8000/api/register`,
+            const res = await axios.post(`https://cryptomedia.herokuapp.com/api/register`,
              { json }
             )
             if(res.data.success)

@@ -20,7 +20,7 @@ function Posts() {
    async function GetPosts(){
 
         loginCredentials = JSON.stringify(loginCredentials)
-        const response = await axios.get('http://localhost:8000/api/posts',{params:{loginCredentials}})
+        const response = await axios.get('https://cryptomedia.herokuapp.com/api/posts',{params:{loginCredentials}})
         // setPosts(response.data.filterPosts)
         dispatch(SetPosts(response.data.filterPosts))
 

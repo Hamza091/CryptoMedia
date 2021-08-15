@@ -40,7 +40,7 @@ function Profile() {
                 userId:loginDetails.data._id // 'x'
             })
             try{
-                const response = await axios.post('http://localhost:8000/api/followreq',{data})
+                const response = await axios.post('https://cryptomedia.herokuapp.com/api/followreq',{data})
                 console.log(response)
                 if(response.data.success)
                 { 

@@ -20,7 +20,7 @@ function Login() {
      const json = JSON.stringify({email,password})
       // const json = {email,password}
           try{
-            const res = await axios.get('http://localhost:8000/api/login',{
+            const res = await axios.get('https://cryptomedia.herokuapp.com/api/login',{
              params:{ json }
             
             }
