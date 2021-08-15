@@ -7,6 +7,9 @@
     "start": "nodemon server.js",
     "prod": "node server.js"
   },
+  "engines": {
+    "node": "14.15.4"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
