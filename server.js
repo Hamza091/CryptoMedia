@@ -45,7 +45,7 @@ io.on("connection",(socket)=>{
 
 // const connectionString = process.env.MONGO_URI
 const PORT = process.env.PORT || 8000
-// mongoose.connect("mongodb://mongo:27017/cryptomedia")
+// mongoose.connect("mongodb://localhost:27017/cryptomedia")
 mongoose.connect('mongodb+srv://hamza:hk123@cluster0.ycueu.mongodb.net/cryptomedia?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{
     server.listen(PORT,()=>{

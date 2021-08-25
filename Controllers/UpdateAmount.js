@@ -32,6 +32,8 @@ async function UpdateAmount(req,res){
             
             Ranking()
             if(UpdatedUser.followers!==0){
+                data.followers  = UpdatedUser.followers
+                data.FollowersId = UpdatedUser.followersId
                 UpdatePosts(data ,"buy")
                 for(var i=0; i<UpdatedUser.followersId.length; i++)
                 {

@@ -46,6 +46,7 @@ function Invest() {
                     console.log(newAmount)
                     const userData = JSON.stringify({'firstName':loginCredentials.data.firstName,'lastName':loginCredentials.data.lastName,'id':loginCredentials.data._id,'amount':newAmount,'coin':coin,'quantity':coinNumbers, 'FollowersId':loginCredentials.data.followersId, 'followers':loginCredentials.data.followers})
                     console.log(userData)
+                    // 
                     const updateUserAmount = await axios.patch('https://cryptomedia.herokuapp.com/api/SellCoin',{
                         userData
                     })

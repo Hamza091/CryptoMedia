@@ -37,6 +37,10 @@ async function SellCoin(req,res){
             Ranking()
             // console.lo("data"+data)
             if(UpdatedUser.followers!==0){
+          
+                data.followers  = UpdatedUser.followers
+                data.FollowersId = UpdatedUser.followersId
+
                 UpdatePosts(data,"sell")
                 for(var i=0; i<UpdatedUser.followersId.length; i++)
                 {

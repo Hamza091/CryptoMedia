@@ -12,6 +12,7 @@ async function FollowReq(req,res){
         console.log(response)
         updatedRankData = await registerSchema.find()
         global.io.emit('ranking',updatedRankData)
+
         res.send({'success':true})
     }
     catch(err)
