@@ -3,13 +3,12 @@ const registerSchema = require('../Models/Register')
 async function FollowReq(req,res){
     
     const data = JSON.parse(req.body.data)
-    console.log(data)
+ 
     try{
         const user = await registerSchema.findOne({'_id':data.userId})
         user.followers=user.followers+1
         user.followersId.push({'id':data.followerId})
-        const response = await user.save()
-        console.log(response)
+        await user.save()
         updatedRankData = await registerSchema.find()
         global.io.emit('ranking',updatedRankData)
 

@@ -1,27 +1,23 @@
 const userSchema = require('../Models/Register')
+const bcrypt = require('bcrypt')
 
 async function Login(req,res){
 
-    console.log("Login request received...")
-    // console.log(req.query.json.email)
+
     const data = JSON.parse(req.query.json)
-    // const data = req.query.json 
+  
     console.log(data)
     try{
-    const user = await userSchema.find({email:data.email,password:data.password})
-    // console.log(user)
-    if(user.length>0)
-    {
-        console.log("found "+ user)
-        
-        res.send({'success':true,data:user})
-        // res.send({data:{...user,'success':true}})
+    
+    const user = await userSchema.find({email:data.email})
+    const match = await bcrypt.compare(data.password,user[0].password)
+    if(match){
+        res.send({success:true,data:user})
     }
-    else
-    {
-        console.log("user not found")
+    else{
         res.send({success:false})
-    }
+    }  
+ 
     }
     catch(err)
     {

@@ -1,10 +1,9 @@
 const registerSchema = require('../Models/Register')
 const EmailValidator = require('email-deep-validator')
+const bcrypt = require('bcrypt')
 
 async function Register(req,res){
-    console.log("Register request received...")
     const data = JSON.parse(req.body.json) 
-    console.log(data)
 
     const emailvalidator = new EmailValidator()
     const { wellFormed, validDomain, validMailbox } = await emailvalidator.verify(data.email);
@@ -18,11 +17,14 @@ async function Register(req,res){
         }
         else
         {
+            const saltRounds = 10
+            const hashedPassword = await bcrypt.hash(data.password, saltRounds)
+           
             const registerUser = new registerSchema({
                 firstName:data.firstName,
                 lastName:data.lastName,
                 email:data.email,
-                password:data.password,
+                password:hashedPassword,
                 amount:data.amount,
                 coins:[{
                     name:'bitcoin',
@@ -36,7 +38,6 @@ async function Register(req,res){
             })
     
         const user = await registerUser.save()
-        console.log(user)
         res.send({'success':true,data:user})
         }
     }
