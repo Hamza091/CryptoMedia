@@ -1,6 +1,6 @@
 [Live Demo](https://cryptomedia.herokuapp.com/)<br/><br/>
 <b>About</b><br/><br/>
-CrptoMedia is a web application in which
+CrptoMedia is a web application where
 users can invest in trending cryptocurrencies
 without any loss. You are given virtual money
 which you can use to buy coins, you can also
